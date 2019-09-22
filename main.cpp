@@ -21,12 +21,23 @@ int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
 
-    //freopen("addin.txt","r",stdin); 
-    //freopen("addout.txt","w",stdout);
+
     int t;
     cin >> t;
-    for (int i = 1; i <=t ; ++i) {
-        cout<<setprecision(0)<<fixed<<(i-1)*(i+4)*(i*i - 3*i +4)/2<<endl;
+    while (t--){
+        int n;
+        cin >> n;
+        int a[n];
+        for (int i = 0; i <n ; ++i) {
+            cin>>a[i];
+        }
+        sort(a,a+n);
+        int min=MOD;
+        for (int j = 1; j <n ; ++j) {
+            if(a[j]- a[j-1] < min)
+                 min=a[j]-a[j-1];
+        }
+        cout<<min<<endl;
     }
     return 0;
 }
